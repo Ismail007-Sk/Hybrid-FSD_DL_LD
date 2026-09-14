@@ -55,4 +55,4 @@ st.markdown("""
 
 # ------------ START BUTTON -----------
 if st.button("▶ Start Detection", use_container_width=True):
-    st.switch_page("Pages/detect.py")
+    st.switch_page("pages/detect.py")
