@@ -267,12 +267,14 @@ with col_right:
 col_video, col_right = st.columns([4, 1])
 
 with col_video:
-    webrtc_streamer(
+    ctx = webrtc_streamer(
         key="hybrid-face-detection",
         video_processor_factory=VideoProcessor,
-        media_stream_constraints={
-            "video": True,
-            "audio": False
+        media_stream_constraints={"video": True, "audio": False},
+        rtc_configuration={
+            "iceServers": [
+                {"urls": ["stun:stun.l.google.com:19302"]}
+            ]
         },
         async_processing=True
     )
