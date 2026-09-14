@@ -71,3 +71,7 @@ Thumbs.db
 uploads/
 temp/
 tmp/
+
+
+LocalDescriptor/SplitData/X_test.npy
+LocalDescriptor/SplitData/X_train.npy
