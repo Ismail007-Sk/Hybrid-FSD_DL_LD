@@ -264,9 +264,10 @@ with col_right:
     if st.button("LD1 Preview", use_container_width=True):
         st.session_state.show_ld1 = not st.session_state.show_ld1
 
-with col_video:
+col_video, col_right = st.columns([4, 1])
 
-    ctx = webrtc_streamer(
+with col_video:
+    webrtc_streamer(
         key="hybrid-face-detection",
         video_processor_factory=VideoProcessor,
         media_stream_constraints={
@@ -275,10 +276,3 @@ with col_video:
         },
         async_processing=True
     )
-
-with col_right:
-
-    if st.button("🛑 STOP", use_container_width=True):
-        if ctx.state.playing:
-            ctx.stop()
-        st.switch_page("FrontEnd.py")
