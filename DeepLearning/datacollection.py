@@ -7,7 +7,7 @@ import os
 #cvzone FaceDetector (MediaPipe-based) ✅
 
 # ------------------ Configuration ------------------
-dataset_path = r'C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\DeepLearning\Dataset'
+dataset_path = r'C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\Dataset'
 categories = ['Real', 'Fake']
 confidence = 0.8
 save = True
@@ -30,7 +30,7 @@ cap.set(3, camWidth)
 cap.set(4, camHeight)
 detector = FaceDetector(minDetectionCon=0.5, modelSelection=0)
 
-counts = {"Real": 2520, "Fake": 2050}
+counts = {"Real": 520, "Fake": 520}
 print("Press 'r' for Real, 'f' for Fake, 'q' to quit.")
 
 try:

@@ -1,0 +1,73 @@
+# =========================
+# DATASETS / GENERATED DATA
+# =========================
+
+# All datasets
+**/Dataset/
+**/dataset/
+**/Datasets/
+**/datasets/
+
+# Train/test split data
+**/SplitData/
+**/splitdata/
+**/Split_Data/
+**/split_data/
+
+# Deep Learning generated runs/results
+**/Runs/
+**/runs/
+
+# =========================
+# PYTHON
+# =========================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# =========================
+# VIRTUAL ENVIRONMENT
+# =========================
+
+venv/
+.venv/
+env/
+.env
+
+# =========================
+# JUPYTER
+# =========================
+
+.ipynb_checkpoints/
+
+# =========================
+# IDE / EDITOR
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
+# OS FILES
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# TEMP / LOG FILES
+# =========================
+
+*.log
+*.tmp
+*.temp
+
+# =========================
+# UPLOADED / GENERATED FILES
+# =========================
+
+uploads/
+temp/
+tmp/

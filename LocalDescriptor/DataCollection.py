@@ -27,7 +27,7 @@ for folder in [REAL_DIR, FAKE_DIR]:
     folder.mkdir(parents=True, exist_ok=True)
 
 # Counters
-count = {"real":1785, "fake":1100}
+count = {"real":1780, "fake":1600}
 
 # --- cvzone Face Detector (MediaPipe-based) ---
 detector = FaceDetector(minDetectionCon=0.5, modelSelection=0)

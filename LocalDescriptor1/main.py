@@ -10,8 +10,8 @@ from BSIF import bsif
 from WLD import wld
 
 # --- MODEL + SCALER PATHS ---
-MODEL_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1model6.pkl.")
-SCALER_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1scaler6.pkl")
+MODEL_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1model8rbf.pkl.")
+SCALER_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1scaler8rbf.pkl")
 
 clf = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)

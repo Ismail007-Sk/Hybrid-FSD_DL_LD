@@ -22,6 +22,20 @@ ld_model = joblib.load(LD_MODEL_PATH)
 ld1_model = joblib.load(LD1_MODEL_PATH)
 ld1_scaler = joblib.load(LD1_SCALER_PATH)
 
+
+
+# ------------------ Accuracy Counters ------------------
+total_frames = 0
+correct_dl = 0
+correct_ld = 0
+correct_ld1 = 0
+correct_final = 0
+
+# Webcam ground truth (you in front of camera)
+GROUND_TRUTH = "real"
+
+
+
 RESIZE_DIM = (128, 128)
 
 # ------------------ Extract LBP + HOG + LPQ ------------------
@@ -95,12 +109,39 @@ while True:
         final_label = "REAL" if votes.count("real") >= 2 else "FAKE"
         color = (0,255,0) if final_label=="REAL" else (0,0,255)
 
+
+
+        # ----- Accuracy calculation -----
+        total_frames += 1
+
+        if dl_pred == GROUND_TRUTH:
+            correct_dl += 1
+        if ld_pred == GROUND_TRUTH:
+            correct_ld += 1
+        if ld1_pred == GROUND_TRUTH:
+            correct_ld1 += 1
+        if final_label.lower() == GROUND_TRUTH:
+            correct_final += 1
+
+        # Compute accuracy %
+        dl_acc = (correct_dl / total_frames) * 100
+        ld_acc = (correct_ld / total_frames) * 100
+        ld1_acc = (correct_ld1 / total_frames) * 100
+        final_acc = (correct_final / total_frames) * 100
+
+
+
         # cvzone.cornerRect(frame, (x, y, w, h), colorC=color, colorR=color)
         # cvzone.putTextRect(frame, final_label, (x, y - 10), scale=1, thickness=1, colorR=color)
 
         cvzone.cornerRect(frame, (x, y, w, h), colorC=color, colorR=color)
         cvzone.putTextRect(frame, f"DL:{dl_pred}  LD:{ld_pred}  LD1:{ld1_pred} → {final_label}",
-                           (x, y-10), scale=1, thickness=1, colorR=color)
+                            (x, y-10), scale=1, thickness=1, colorR=color)
+        cv2.putText(frame,
+                    f"ACC - DL:{dl_acc:.1f}%  LD:{ld_acc:.1f}%  LD1:{ld1_acc:.1f}%  FINAL:{final_acc:.1f}%",
+                    (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.7, (255, 255, 0), 2)
 
     cv2.imshow("Hybrid FSD", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):

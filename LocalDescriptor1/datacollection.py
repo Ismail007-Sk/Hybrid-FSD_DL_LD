@@ -20,7 +20,7 @@ for folder in [REAL_DIR, FAKE_DIR]:
     folder.mkdir(parents=True, exist_ok=True)
 
 # Counters (continue your numbering)
-count = {"real": 1100, "fake": 1300}
+count = {"real": 1900, "fake": 1300}
 
 # --- Face Detector (MediaPipe) ---
 detector = FaceDetector(minDetectionCon=0.5, modelSelection=0)

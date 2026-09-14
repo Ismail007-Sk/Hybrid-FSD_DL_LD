@@ -3,12 +3,12 @@ import joblib
 import numpy as np
 from pathlib import Path
 from skimage.feature import local_binary_pattern, hog
-from LPQ import lpq  # Your LPQ module
+from LPQ import lpq  #  LPQ module
 import cvzone
 from cvzone.FaceDetectionModule import FaceDetector
 
 # --- Paths ---
-MODEL_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor\Models\LDmodel2.pkl")
+MODEL_PATH = Path(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor\Models\LD_fusedVM_20260316_161210.pkl")
 
 # --- Load trained SVM model ---
 clf = joblib.load(MODEL_PATH)

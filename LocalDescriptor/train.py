@@ -52,7 +52,14 @@ print(f"Data saved successfully in {SAVE_DIR}")
 
 
 # --- Train SVM model ---
-clf = SVC(kernel='linear', probability=True)
+clf = SVC(kernel="rbf",
+    C=0.1,
+    class_weight="balanced",
+    probability=True)
+# kernel="linear",
+#     C=0.1,
+#     class_weight="balanced",
+#     probability=True
 clf.fit(X_train, y_train)
 
 # --- Evaluate model ---
