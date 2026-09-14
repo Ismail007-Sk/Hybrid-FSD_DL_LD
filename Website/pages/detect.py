@@ -1,6 +1,7 @@
 import sys
 sys.path.append(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)")
 
+from numpy.compat import Path
 import streamlit as st
 import cv2
 import numpy as np
@@ -65,10 +66,13 @@ if st.button("🛑 STOP"):
 # ----------------------------------------------------
 # LOAD MODELS
 # ----------------------------------------------------
-DL_MODEL_PATH = r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\DeepLearning\Models\model2.pt"
-LD_MODEL_PATH = r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor\Models\LDmodel2.pkl"
-LD1_MODEL_PATH = r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1model5.pkl"
-LD1_SCALER_PATH = r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)\LocalDescriptor1\Models\LD1scaler5.pkl"
+BASE_DIR = Path(__file__).resolve().parents[2]
+
+DL_MODEL_PATH = BASE_DIR / "DeepLearning" / "Models" / "model2.pt"
+LD_MODEL_PATH = BASE_DIR / "LocalDescriptor" / "Models" / "LDmodel2.pkl"
+LD1_MODEL_PATH = BASE_DIR / "LocalDescriptor1" / "Models" / "LD1model5.pkl"
+LD1_SCALER_PATH = BASE_DIR / "LocalDescriptor1" / "Models" / "LD1scaler5.pkl"
+
 
 yolo = YOLO(DL_MODEL_PATH)
 ld_model = joblib.load(LD_MODEL_PATH)
