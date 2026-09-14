@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r"C:\Users\Desktop\PycharmProjects\Hybrid FSD (DL+LD)")
 
-from numpy.compat import Path
+from pathlib import Path
 import streamlit as st
 import cv2
 import numpy as np
